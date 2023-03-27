@@ -4,40 +4,45 @@ export const newEncabezado = (titulo, menu1, menu2, link1, link2) => {
     var encabezado = document.createElement('header');
     encabezado.setAttribute('class', 'encabezado');
 
-    var titulo = document.createElement('h1');
-    titulo.setAttribute('class', 'titulo');
-    titulo.innerHTML = titulo;
-    titulo.style.color = constantes.colorTitulo;
+    var tituloH = document.createElement('h1');
+    tituloH.setAttribute('class', 'titulo');
+    tituloH.innerHTML = titulo;
+    tituloH.style.color = constantes.colorTitulo;
+    encabezado.appendChild(tituloH);
 
     if (menu1 != null) {
-        var menu1 = document.createElement('a');
-        menu1.setAttribute('class', 'menu');
-        menu1.setAttribute('href', link1);
-        menu1.innerHTML = menu1;
-        menu1.style.color = constantes.linksColor;
-        menu1.addEventListener('mouseover', function() {
-            menu1.style.color = constantes.linksColorHover;
-          }
-        );
-        encabezado.appendChild(menu1);
+        var menuLink1 = document.createElement('a');
+        menuLink1.setAttribute('class', 'menu');
+        menuLink1.setAttribute('href', link1);
+        menuLink1.innerHTML = menu1;
+        menuLink1.style.color = constantes.linksColor;
+        menuLink1.addEventListener('mouseover', () => {
+            menuLink1.style.color = constantes.linksHoverColor;
+        });
+          
+        menuLink1.addEventListener('mouseout', () => {
+            menuLink1.style.color = constantes.linksColor;
+        });
+        encabezado.appendChild(menuLink1);
     }
     if(menu2 != null) {
         var span = document.createElement('span');
         span.innerHTML = ' | ';
-        var menu2 = document.createElement('a');
-        menu2.setAttribute('class', 'menu');
-        menu2.setAttribute('href', link2);
-        menu2.innerHTML = menu2;
-        menu2.style.color = constantes.linksColor;
-        menu2.addEventListener('mouseover', function() {
-            menu2.style.color = constantes.linksColorHover;
-          }
-        );
+        var menuLink2 = document.createElement('a');
+        menuLink2.setAttribute('class', 'menu');
+        menuLink2.setAttribute('href', link2);
+        menuLink2.textContent = menu2;
+        menuLink2.style.color = constantes.linksColor;
+        menuLink2.addEventListener('mouseover', () => {
+            menuLink2.style.color = constantes.linksHoverColor;
+        });
+          
+        menuLink2.addEventListener('mouseout', () => {
+            menuLink2.style.color = constantes.linksColor;
+        });
         encabezado.appendChild(span);
-        encabezado.appendChild(menu2);
+        encabezado.appendChild(menuLink2);
     }
-
-    encabezado.appendChild(titulo);
 
     return encabezado;
 };

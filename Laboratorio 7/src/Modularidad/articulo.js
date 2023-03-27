@@ -1,4 +1,4 @@
-import * as constantes from "../assets/constantes/constantes.jss";
+import * as constantes from "../assets/constantes/constantes.js";
 
 export const newArticle = (titulo,subtitulo,img,alt,texto) => {
     var article = document.createElement("article");

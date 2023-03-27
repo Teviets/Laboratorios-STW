@@ -10,26 +10,33 @@ export const newList = (elementos,links,ordenada) => {
     }
     lista.setAttribute('id', 'lista');
 
-    for (let i = 0; i < elementos.length; index++) {
+    for (let i = 0; i < elementos.length; i++) {
         var elemento = document.createElement('li');
         elemento.setAttribute('class', 'elemento');
         elemento.innerHTML = elementos[i];
         elemento.style.color = constantes.textColor;
 
-        var br = document.createElement('br');
+        
+        if(links[i] != null) {
+            var br = document.createElement('br');
 
-        var descripcion = document.createElement('a');
-        descripcion.setAttribute('class', 'descripcion');
-        descripcion.setAttribute('href', links[i]);
-        descripcion.innerHTML = 'Ver más';
-        descripcion.style.color = constantes.linksColor;
-        descripcion.addEventListener('mouseover', function() {
-            descripcion.style.color = constantes.linksColorHover;
-          }
-        );
+            var descripcion = document.createElement('a');
+            descripcion.setAttribute('class', 'descripcion');
+            descripcion.setAttribute('href', links[i]);
+            descripcion.innerHTML = 'Ver más';
+            descripcion.style.color = constantes.linksColor;
+            descripcion.addEventListener('mouseover', () => {
+                descripcion.style.color = constantes.linksHoverColor;
+            });
+              
+            descripcion.addEventListener('mouseout', () => {
+                descripcion.style.color = constantes.linksColor;
+            });
+            elemento.appendChild(br);
+            elemento.appendChild(descripcion);
 
-        elemento.appendChild(br);
-        elemento.appendChild(descripcion);
+        }
+        
 
         lista.appendChild(elemento);
     }

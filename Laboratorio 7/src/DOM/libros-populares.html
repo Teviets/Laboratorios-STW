@@ -4,15 +4,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="estilos/libros-populares.css" type="text/css">
+        <link rel="stylesheet" href="../estilos/libros-populares.css" type="text/css">
+        <script type="module" src="../logica/libros-populares.js"></script>
         <title>Libros populares</title>
     </head>
     <body id="body">
-
-        <audio controls>
+        <div id="audio"></div>
+        <!--<audio controls>
             <source src="sonidos/LibrosPop.wav" type="audio/wav">
             Tu navegador no soporta audio HTML5
-        </audio>
+        </audio>-->
 
         <!--
             Libros populares
@@ -21,8 +22,11 @@
             - Los juegos del hambre sinsajo
             - divergente
         -->
-        <h1 id="titulo">Libros populares</h1>
+        <div id="header"></div>
+        <!--<h1 id="titulo">Libros populares</h1>-->
 
+        <div id="list"></div>
+        <!--
         <div id = "lista_libros">
             <ul>
                 <li class = "libs"><i><b>Harry Potter: el pricionero de Azcaban, J.K. Rowling</b></i><br>
@@ -35,11 +39,15 @@
                     <a href="Divergente-detalles.html" class="links">Detalles del libro</a></li>
             </ul>
         </div>
-        
+        -->
+        <div id="img"></div>
+        <!--
         <div>
             <img src="img/LibrosPop.png" alt="Mi libreria" height="300" width="300">
         </div>
-
+        -->
+        <div id="progress"></div>
+        <!--
         <div>
             <br>
             <span id = "progres">Progreso en el sitio</span>
@@ -47,6 +55,6 @@
             <progress max="100" value="50"></progress>
             <span>50%</span>
             <br>
-        </div>
+        </div>-->
     </body>
 </html>
