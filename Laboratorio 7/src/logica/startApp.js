@@ -39,7 +39,7 @@ export const nuevosLanzamientosApp = () => {
         'Juego de tronos, George R. R. Martin','El hobbit, J. R. R. Tolkien','El gran gatsby, F. Scott Fitzgerald',
         'Comentario de articulo, Sebastian Estrada','Mi historia, Sebastian Estrada'],
         [null,null,null,null,null,null,'../DOM/Mi_Historia1.html'],true));
-    document.getElementById('img').appendChild(newImg('../assets/img/NuevosLanz.png', 'Mi libreria'));
-    document.getElementById('progress').appendChild(newProgress('100'));
-    document.head.appendChild(styleSheet('../assets/css/nuevos-lanzamientos.css'));
+    document.getElementById('img').appendChild(newImg('../assets/img/NuevLanz.png', 'Mi libreria'));
+    document.getElementById('progress').appendChild(newProgress(null));
+    document.head.appendChild(styleSheet('../estilos/nuevos-lanzamientos.css'));
 }

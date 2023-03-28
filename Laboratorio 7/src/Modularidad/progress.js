@@ -11,13 +11,18 @@ export const newProgress = (porcent) => {
     span.innerHTML = 'Progreso del sitio';
     span.style.color = constantes.textColor;
 
-    var progress = document.createElement('progress');
-    progress.setAttribute('value', porcent);
-    progress.setAttribute('max', '100');
-
     var spanPercent = document.createElement('span');
     spanPercent.setAttribute('class', 'porcent');
-    spanPercent.innerHTML = porcent + '%';
+    
+    var progress = document.createElement('progress');
+    if (porcent != null){
+        progress.setAttribute('value', porcent);
+        progress.setAttribute('max', '100');
+        spanPercent.innerHTML = porcent + '%';
+    }
+    else{
+        spanPercent.innerHTML = '?%';
+    }
     spanPercent.style.color = constantes.textColor;
 
     div.appendChild(br);
