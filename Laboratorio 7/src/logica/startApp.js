@@ -40,5 +40,6 @@ export const nuevosLanzamientosApp = () => {
         'Comentario de articulo, Sebastian Estrada','Mi historia, Sebastian Estrada'],
         [null,null,null,null,null,null,'../DOM/Mi_Historia1.html'],true));
     document.getElementById('img').appendChild(newImg('../assets/img/NuevosLanz.png', 'Mi libreria'));
+    document.getElementById('progress').appendChild(newProgress('100'));
     document.head.appendChild(styleSheet('../assets/css/nuevos-lanzamientos.css'));
 }
