@@ -38,7 +38,7 @@ export const nuevosLanzamientosApp = () => {
     document.getElementById('list').appendChild(newList(['Dune, Frank Herbert','Diario de greg, Jeff Kinney',
         'Juego de tronos, George R. R. Martin','El hobbit, J. R. R. Tolkien','El gran gatsby, F. Scott Fitzgerald',
         'Comentario de articulo, Sebastian Estrada','Mi historia, Sebastian Estrada'],
-        [null,null,null,null,null,null,'../DOM/Mi_Historia.html'],true));
+        [null,null,null,null,null,null,'../DOM/MiHistoria.html'],true));
     document.getElementById('img').appendChild(newImg('../assets/img/NuevLanz.png', 'Mi libreria'));
     document.getElementById('progress').appendChild(newProgress(null));
     document.head.appendChild(styleSheet('../estilos/nuevos-lanzamientos.css'));
@@ -46,7 +46,7 @@ export const nuevosLanzamientosApp = () => {
 
 export const miHistoriaApp = () => {
     document.getElementById('audio').appendChild(newAudio('../assets/sonidos/IntroHistoria.wav'));
-    document.getElementById('article').appendChild(newArticle("Mi historia","Una historia interactiva", 
+    /*document.getElementById('article').appendChild(newArticle("Mi historia","Una historia interactiva", 
         "../assets/img/FedericoPortada.png","El inicio", "Hace unos años, había un adolescente llamado Federico. Era una persona muy aplicada en sus estudios y en sus\n"+
         "en casa, siempre cumpliendo con los estándares que le ponían sus maestros y su familia. Además, Federico tenía\n"+
         "mucha creatividad para crear historias de superhéroes, por lo que le apasionaba crear cómics de estos personajes.\n"+
@@ -57,7 +57,7 @@ export const miHistoriaApp = () => {
         "también quería complacer a su padre.\n\n"+
         "Luego de unos días Federico se dirige a los asesores de la universidad a la que quiere entrar y estos le hacen\n"+
         "la pregunta que no quería responder pues no se sentía listo.\n\n"+
-        "¿Que quieres estudiar?\n\n"+ "¿Qué deberá hacer federico?"));
+        "¿Que quieres estudiar?\n\n"+ "¿Qué deberá hacer federico?"));*/
     document.getElementById('Progress').appendChild(newProgress('25'));
     document.getElementByIde('opciones').appendChild(newList(['Enfrentarse a sus papas y escoger estudiar lo que quiere','Aceptar lo que quieren sus papas y estudiar arquitectura',
         'Esperar un año para poder tomar una decisión y empezar una vida laboral'],
