@@ -1,3 +1,3 @@
-import { nuevosLanzamientosApp } from "./startApp";
+import { nuevosLanzamientosApp } from "./startApp.js";
 
 nuevosLanzamientosApp();
