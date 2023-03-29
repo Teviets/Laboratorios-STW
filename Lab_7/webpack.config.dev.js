@@ -28,7 +28,9 @@ module.exports = {
             template: './src/nuevos-lanzamientos.html',
             chunks: ['nuevosLanz']
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
     ],
     module: {
         rules: [
@@ -39,8 +41,8 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: '/src/assets/img/',
-                            publicPath: '../src/assets/img/'
+                            outputPath: 'src/assets/img/',
+                            publicPath: '/src/assets/img/'
                         }
                     }
                 ]
@@ -52,17 +54,16 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: '/src/assets/sonidos/',
-                            publicPath: '../src/assets/sonidos/'
+                            outputPath: 'src/assets/sonidos/',
+                            publicPath: '/src/assets/sonidos/'
                         }
                     }
                 ]
             },
             {
                 test: /\.scss$/,
-                include: path.resolve(__dirname, 'src/estilos'),
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
