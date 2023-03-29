@@ -1,0 +1,55 @@
+$body-color: #003049;
+$header-width: 100px;
+$header-left: 35%;
+$img-top: 18%;
+$img-left: 32%;
+$progress-top: 70%;
+$audio-top: 77%;
+$text-color: #eae2b7;
+$link-hover-color: #fcbf49;
+
+body {
+  background-color: $body-color;
+  overflow-x: hidden;
+}
+
+#header {
+  position: absolute;
+  width: $header-width;
+  height: auto;
+  top: 0%;
+  left: $header-left;
+  width: 100%;
+}
+
+#img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $img-top;
+  left: $img-left;
+}
+
+#progress {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $progress-top;
+  left: $img-left;
+}
+
+#audio {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $audio-top;
+  left: $img-left;
+}
+
+h1 {
+  color: $text-color;
+}
+
+a:hover {
+  color: $link-hover-color;
+}

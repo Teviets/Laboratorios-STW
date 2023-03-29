@@ -1,0 +1,65 @@
+$body-color: #003049;
+
+body {
+  background-color: $body-color;
+  overflow-x: hidden;
+}
+
+$header-top: 0%;
+$header-left: 35%;
+
+#header {
+  position: absolute;
+  height: auto;
+  top: $header-top;
+  left: $header-left;
+  width: 100%;
+}
+
+$img-top: 18%;
+$img-left: 44%;
+
+#img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $img-top;
+  left: $img-left;
+}
+
+$list-top: 18%;
+$list-left: 21%;
+
+#list {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $list-top;
+  left: $list-left;
+}
+
+$progress-top: 70%;
+$progress-left: 32%;
+
+#progress {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $progress-top;
+  left: $progress-left;
+}
+
+$audio-top: 77%;
+$audio-left: 32%;
+
+#audio {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $audio-top;
+  left: $audio-left;
+}
+
+h1 {
+  color: #eae2b7;
+}

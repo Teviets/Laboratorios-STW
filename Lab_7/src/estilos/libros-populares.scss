@@ -1,0 +1,57 @@
+$body-color: #003049;
+$header-left: 35%;
+$img-top: 18%;
+$img-left: 20%;
+$list-left: 42%;
+$progress-top: 70%;
+$audio-top: 77%;
+$text-color: #eae2b7;
+
+body {
+  background-color: $body-color;
+  overflow-x: hidden;
+}
+
+#header {
+  position: absolute;
+  height: auto;
+  top: 0%;
+  left: $header-left;
+  width: 100%;
+}
+
+#img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $img-top;
+  left: $img-left;   
+}
+
+#list {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $img-top;
+  left: $list-left;
+}
+
+#progress {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $progress-top;
+  left: $img-left;
+}
+
+#audio {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: $audio-top;
+  left: $img-left;
+}
+
+h1 {
+  color: $text-color;
+}
