@@ -33,9 +33,30 @@ module.exports = {
     module: {
         rules: [
             {
-                use: "asset",
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: '/src/assets/img/',
+                            publicPath: '../src/assets/img/'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(wav|mp3)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: '/src/assets/sonidos/',
+                            publicPath: '../src/assets/sonidos/'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,

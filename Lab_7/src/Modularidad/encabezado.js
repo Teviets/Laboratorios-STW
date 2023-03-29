@@ -7,7 +7,7 @@ export const newEncabezado = (titulo, menu1, menu2, link1, link2) => {
     var tituloH = document.createElement('h1');
     tituloH.setAttribute('class', 'titulo');
     tituloH.innerHTML = titulo;
-    tituloH.style.color = constantes.colorTitulo;
+    tituloH.style.color = constantes.textColor;
     encabezado.appendChild(tituloH);
 
     if (menu1 != null) {
