@@ -28,9 +28,7 @@ module.exports = {
             template: './src/nuevos-lanzamientos.html',
             chunks: ['nuevosLanz']
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css'
-        })
+        new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
@@ -62,8 +60,8 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                include: path.resolve(__dirname, 'src/estilos'),
                 use: [
-                    MiniCssExtractPlugin.loader,
                     'style-loader',
                     'css-loader',
                     'sass-loader'

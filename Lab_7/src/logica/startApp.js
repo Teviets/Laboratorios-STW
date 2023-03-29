@@ -11,7 +11,7 @@ export const indexApp = () => {
     document.getElementById('header').appendChild(newEncabezado('Menu principal', 'Libros populares', 'Nuevos libros', './libros-populares.html', './nuevos-lanzamientos.html'));
     document.getElementById('img').appendChild(newImg('../assets/img/Milib.png', 'Mi libreria'));
     document.getElementById('progress').appendChild(newProgress('0'));
-    document.head.appendChild(styleSheet('../estilos/index.css'));
+    document.head.appendChild(styleSheet('./index.css'));
 };
 
 export const librosPopularesApp = () => {
@@ -28,7 +28,7 @@ export const librosPopularesApp = () => {
     'https://quelibroleo.com/divergente'],false));
     document.getElementById('img').appendChild(newImg('../assets/img/LibrosPop.png', 'Mi libreria'));
     document.getElementById('progress').appendChild(newProgress('50'));
-    document.head.appendChild(styleSheet('../assets/css/libros-populares.css'));
+    document.head.appendChild(styleSheet('./libros-populares.css'));
 };
 
 export const nuevosLanzamientosApp = () => {
@@ -40,5 +40,5 @@ export const nuevosLanzamientosApp = () => {
         [null,null,null,null,null,null,null],true));
     document.getElementById('img').appendChild(newImg('../assets/img/NuevLanz.png', 'Mi libreria'));
     document.getElementById('progress').appendChild(newProgress(null));
-    document.head.appendChild(styleSheet('../estilos/nuevos-lanzamientos.css'));
+    document.head.appendChild(styleSheet('./nuevos-lanzamientos.css'));
 }
