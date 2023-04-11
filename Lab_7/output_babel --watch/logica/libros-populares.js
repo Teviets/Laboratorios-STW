@@ -1,5 +1,5 @@
 "use strict";
 
-import { librosPopularesApp } from "./startApp.js";
-import '../estilos/libros-populares.scss';
-librosPopularesApp();
+var _startApp = require("./startApp.js");
+require("../estilos/libros-populares.scss");
+(0, _startApp.librosPopularesApp)();

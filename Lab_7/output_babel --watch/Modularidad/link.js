@@ -1,9 +1,14 @@
 "use strict";
 
-export const styleSheet = direccion => {
-  let estilo = document.createElement('link');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.styleSheet = void 0;
+var styleSheet = function styleSheet(direccion) {
+  var estilo = document.createElement('link');
   estilo.setAttribute('rel', 'stylesheet');
   estilo.setAttribute('type', 'text/css');
   estilo.setAttribute('href', direccion);
   return estilo;
 };
+exports.styleSheet = styleSheet;

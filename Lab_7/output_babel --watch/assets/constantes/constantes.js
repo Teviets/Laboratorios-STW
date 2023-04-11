@@ -1,11 +1,21 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.textColor = exports.linksHoverColor = exports.linksColor = exports.imgWidth = exports.imgHeight = exports.background = void 0;
 // Paleta de colores
-export const background = '#003049';
-export const textColor = '#eae2b7';
-export const linksColor = '#f77f00';
-export const linksHoverColor = '#fcbf49';
+var background = '#003049';
+exports.background = background;
+var textColor = '#eae2b7';
+exports.textColor = textColor;
+var linksColor = '#f77f00';
+exports.linksColor = linksColor;
+var linksHoverColor = '#fcbf49';
 
 // Tamaños de las imagenes
-export const imgHeight = '300px';
-export const imgWidth = '300px';
+exports.linksHoverColor = linksHoverColor;
+var imgHeight = '300px';
+exports.imgHeight = imgHeight;
+var imgWidth = '300px';
+exports.imgWidth = imgWidth;

@@ -1,5 +1,5 @@
 "use strict";
 
-import { nuevosLanzamientosApp } from "./startApp.js";
-import '../estilos/nuevos-lanzamientos.scss';
-nuevosLanzamientosApp();
+var _startApp = require("./startApp.js");
+require("../estilos/nuevos-lanzamientos.scss");
+(0, _startApp.nuevosLanzamientosApp)();

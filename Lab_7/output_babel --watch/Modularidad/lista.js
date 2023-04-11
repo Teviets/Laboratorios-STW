@@ -1,7 +1,14 @@
 "use strict";
 
-import * as constantes from '../assets/constantes/constantes.js';
-export const newList = (elementos, links, ordenada) => {
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.newList = void 0;
+var constantes = _interopRequireWildcard(require("../assets/constantes/constantes.js"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var newList = function newList(elementos, links, ordenada) {
   var lista;
   // True es ordenada (OL), false es desordenada (UL)
   if (ordenada) {
@@ -10,7 +17,7 @@ export const newList = (elementos, links, ordenada) => {
     lista = document.createElement('ul');
   }
   lista.setAttribute('id', 'lista');
-  for (let i = 0; i < elementos.length; i++) {
+  for (var i = 0; i < elementos.length; i++) {
     var elemento = document.createElement('li');
     elemento.setAttribute('class', 'elemento');
     elemento.innerHTML = elementos[i];
@@ -22,10 +29,10 @@ export const newList = (elementos, links, ordenada) => {
       descripcion.setAttribute('href', links[i]);
       descripcion.innerHTML = 'Ver más';
       descripcion.style.color = constantes.linksColor;
-      descripcion.addEventListener('mouseover', () => {
+      descripcion.addEventListener('mouseover', function () {
         descripcion.style.color = constantes.linksHoverColor;
       });
-      descripcion.addEventListener('mouseout', () => {
+      descripcion.addEventListener('mouseout', function () {
         descripcion.style.color = constantes.linksColor;
       });
       elemento.appendChild(br);
@@ -35,3 +42,4 @@ export const newList = (elementos, links, ordenada) => {
   }
   return lista;
 };
+exports.newList = newList;
