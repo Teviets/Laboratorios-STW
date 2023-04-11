@@ -41,8 +41,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'src/assets/img/',
-                            publicPath: '/src/assets/img/'
+                            outputPath: 'img/'
                         }
                     }
                 ]
@@ -54,8 +53,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'src/assets/sonidos/',
-                            publicPath: '/src/assets/sonidos/'
+                            outputPath: 'sonidos/'
                         }
                     }
                 ]
