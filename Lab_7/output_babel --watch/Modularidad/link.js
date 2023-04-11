@@ -1,3 +1,5 @@
+"use strict";
+
 export const styleSheet = direccion => {
   let estilo = document.createElement('link');
   estilo.setAttribute('rel', 'stylesheet');

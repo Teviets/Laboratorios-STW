@@ -1,3 +1,5 @@
+"use strict";
+
 export const newAudio = src => {
   var audio = document.createElement("audio");
   audio.setAttribute('controls', '');

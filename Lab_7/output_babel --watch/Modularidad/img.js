@@ -1,3 +1,5 @@
+"use strict";
+
 import * as constantes from '../assets/constantes/constantes.js';
 export const newImg = (src, alt) => {
   var div = document.createElement('div');

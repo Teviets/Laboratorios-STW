@@ -1,3 +1,5 @@
+"use strict";
+
 import * as constantes from '../assets/constantes/constantes.js';
 export const newProgress = porcent => {
   var div = document.createElement('div');

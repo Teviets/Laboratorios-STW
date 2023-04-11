@@ -1,3 +1,5 @@
+"use strict";
+
 import { newAudio } from "../modularidad/audios.js";
 import { newEncabezado } from "../modularidad/encabezado.js";
 import { newImg } from "../modularidad/img.js";

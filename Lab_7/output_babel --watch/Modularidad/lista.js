@@ -1,3 +1,5 @@
+"use strict";
+
 import * as constantes from '../assets/constantes/constantes.js';
 export const newList = (elementos, links, ordenada) => {
   var lista;

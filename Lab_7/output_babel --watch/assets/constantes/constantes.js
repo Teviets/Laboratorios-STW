@@ -1,3 +1,5 @@
+"use strict";
+
 // Paleta de colores
 export const background = '#003049';
 export const textColor = '#eae2b7';

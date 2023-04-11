@@ -1,3 +1,5 @@
+"use strict";
+
 import * as constantes from '../assets/constantes/constantes.js';
 export const newEncabezado = (titulo, menu1, menu2, link1, link2) => {
   var encabezado = document.createElement('header');
