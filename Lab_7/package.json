@@ -8,7 +8,6 @@
     "build": "webpack",
     "build-babel": "babel src --out-dir output_babel --watch"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,6 +25,7 @@
   "devDependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-strict-mode": "^7.18.6",
     "@babel/preset-env": "^7.21.4",
     "babel-loader": "^9.1.2"
   }
