@@ -10,10 +10,8 @@ export default function carta(props){
     }
 
     return (
-        <div className={`card ${rotated ? 'rotated' : ''}`} onClick={handleClick}>
-            <div className="front">
-                
-            </div>
+        <div className="carta">
+
         </div>
     )
 }
