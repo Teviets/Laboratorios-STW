@@ -5,12 +5,16 @@ import "./tablero.css";
 
 
 export default class Tablero extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
-    const memoria = [1,2,3,4,5];
+    
     return (
         <div className="Tablero">
             {
-                memoria.map((carta) => <Carta></Carta>)
+              this.props.miBar.map((carta) => <Carta src={carta.icono.src}/>)
             }
         </div>
     );
