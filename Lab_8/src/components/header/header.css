@@ -11,9 +11,15 @@ header{
 }
 h1{
     color: var(--color4);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 span{
     color: var(--color4);
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 button{
     box-sizing: border-box;
@@ -45,7 +51,7 @@ button{
 }
 .fourth {
     position: absolute;
-    top: 80%;
+    top: 500px;
     left: 0%;
     border-color: var(--color3);
     color: #fff;

@@ -1,11 +1,11 @@
-import tres from "../img/3.jpg";
-import arte from "../img/arte.jpg";
-import corona from "../img/corona.jpg";
-import Geralt from "../img/Geralt.jpg";
-import geraltforma from "../img/geraltforma.jpg";
-import Lobo from "../img/Lobo.jpg";
-import LoboEstrellaPajaro from "../img/LoboEstrellaPajaro.jpg";
-import pajaro from "../img/pajaro.jpg";
+import tres from "../img/3.png";
+import arte from "../img/arte.png";
+import corona from "../img/corona.png";
+import Geralt from "../img/Geralt.png";
+import geraltforma from "../img/geraltforma.png";
+import Lobo from "../img/Lobo.png";
+import LoboEstrellaPajaro from "../img/LoboEstrellaPajaro.png";
+import pajaro from "../img/pajaro.png";
 
 export const images = [
     {

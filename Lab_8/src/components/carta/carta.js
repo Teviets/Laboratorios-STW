@@ -1,4 +1,5 @@
 import "./carta.css";
+import backCard from "../../Assets/img/BackCard.png";
 
 import React from "react";
 import ReactCardFlip from 'react-card-flip';
@@ -23,13 +24,14 @@ export default class Carta extends React.Component {
       
       return (
         <div className="carta">
-            <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+            <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
+                <div >
+                    <img src={backCard} onClick={this.handleClick}/>
+                </div>
                 <div>
                     <img src={this.props.src} onClick={this.handleClick}/>
                 </div>
-                <div >
-                    <p onClick={this.handleClick}>Mi Prueba</p>
-                </div>
+                
             </ReactCardFlip>
         </div>
       );

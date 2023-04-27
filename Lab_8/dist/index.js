@@ -1872,7 +1872,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react.createElement("header", null, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "Lab 8")), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("button", {
+      return /*#__PURE__*/react.createElement("header", null, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "Memoria Witcher")), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("button", {
         className: "fourth"
       }, "Reinicio")), /*#__PURE__*/react.createElement("div", {
         id: "intento"
@@ -1882,6 +1882,8 @@ var Header = /*#__PURE__*/function (_React$Component) {
   return Header;
 }(react.Component);
 
+;// CONCATENATED MODULE: ./src/Assets/img/BackCard.png
+/* harmony default export */ const BackCard = (__webpack_require__.p + "img/BackCard.png");
 // EXTERNAL MODULE: ./node_modules/react-card-flip/lib/ReactCardFlip.js
 var ReactCardFlip = __webpack_require__(941);
 var ReactCardFlip_default = /*#__PURE__*/__webpack_require__.n(ReactCardFlip);
@@ -1899,6 +1901,7 @@ function carta_possibleConstructorReturn(self, call) { if (call && (carta_typeof
 function carta_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function carta_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function carta_getPrototypeOf(o) { carta_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return carta_getPrototypeOf(o); }
+
 
 
 
@@ -1932,13 +1935,14 @@ var Carta = /*#__PURE__*/function (_React$Component) {
         className: "carta"
       }, /*#__PURE__*/react.createElement((ReactCardFlip_default()), {
         isFlipped: this.state.isFlipped,
-        flipDirection: "vertical"
+        flipDirection: "horizontal"
       }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("img", {
+        src: BackCard,
+        onClick: this.handleClick
+      })), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("img", {
         src: this.props.src,
         onClick: this.handleClick
-      })), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("p", {
-        onClick: this.handleClick
-      }, "Mi Prueba"))));
+      }))));
     }
   }]);
   return Carta;
@@ -1986,22 +1990,22 @@ var Tablero = /*#__PURE__*/function (_React$Component) {
 // EXTERNAL MODULE: ./node_modules/lodash.shuffle/index.js
 var lodash_shuffle = __webpack_require__(198);
 var lodash_shuffle_default = /*#__PURE__*/__webpack_require__.n(lodash_shuffle);
-;// CONCATENATED MODULE: ./src/Assets/img/3.jpg
-/* harmony default export */ const _3 = (__webpack_require__.p + "img/3.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/arte.jpg
-/* harmony default export */ const arte = (__webpack_require__.p + "img/arte.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/corona.jpg
-/* harmony default export */ const corona = (__webpack_require__.p + "img/corona.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/Geralt.jpg
-/* harmony default export */ const Geralt = (__webpack_require__.p + "img/Geralt.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/geraltforma.jpg
-/* harmony default export */ const geraltforma = (__webpack_require__.p + "img/geraltforma.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/Lobo.jpg
-/* harmony default export */ const Lobo = (__webpack_require__.p + "img/Lobo.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/LoboEstrellaPajaro.jpg
-/* harmony default export */ const LoboEstrellaPajaro = (__webpack_require__.p + "img/LoboEstrellaPajaro.jpg");
-;// CONCATENATED MODULE: ./src/Assets/img/pajaro.jpg
-/* harmony default export */ const pajaro = (__webpack_require__.p + "img/pajaro.jpg");
+;// CONCATENATED MODULE: ./src/Assets/img/3.png
+/* harmony default export */ const _3 = (__webpack_require__.p + "img/3.png");
+;// CONCATENATED MODULE: ./src/Assets/img/arte.png
+/* harmony default export */ const arte = (__webpack_require__.p + "img/arte.png");
+;// CONCATENATED MODULE: ./src/Assets/img/corona.png
+/* harmony default export */ const corona = (__webpack_require__.p + "img/corona.png");
+;// CONCATENATED MODULE: ./src/Assets/img/Geralt.png
+/* harmony default export */ const Geralt = (__webpack_require__.p + "img/Geralt.png");
+;// CONCATENATED MODULE: ./src/Assets/img/geraltforma.png
+/* harmony default export */ const geraltforma = (__webpack_require__.p + "img/geraltforma.png");
+;// CONCATENATED MODULE: ./src/Assets/img/Lobo.png
+/* harmony default export */ const Lobo = (__webpack_require__.p + "img/Lobo.png");
+;// CONCATENATED MODULE: ./src/Assets/img/LoboEstrellaPajaro.png
+/* harmony default export */ const LoboEstrellaPajaro = (__webpack_require__.p + "img/LoboEstrellaPajaro.png");
+;// CONCATENATED MODULE: ./src/Assets/img/pajaro.png
+/* harmony default export */ const pajaro = (__webpack_require__.p + "img/pajaro.png");
 ;// CONCATENATED MODULE: ./src/Assets/utils/images.js
 
 
@@ -2100,9 +2104,11 @@ var App = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react.createElement("div", {
         className: "App"
-      }, /*#__PURE__*/react.createElement(Header, null), /*#__PURE__*/react.createElement(Tablero, {
+      }, /*#__PURE__*/react.createElement(Header, null), /*#__PURE__*/react.createElement("div", {
+        id: "tablero"
+      }, /*#__PURE__*/react.createElement(Tablero, {
         miBar: this.state.miBaraja
-      }));
+      })));
     }
   }]);
   return App;

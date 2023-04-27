@@ -6,7 +6,7 @@ export default class Header extends React.Component{
         return (
             <header>
                 <div>
-                    <h1>Lab 8</h1>
+                    <h1>Memoria Witcher</h1>
                 </div>
                 <div>
                     <button className="fourth" >
