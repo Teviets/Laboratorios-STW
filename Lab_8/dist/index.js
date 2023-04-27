@@ -1932,10 +1932,13 @@ var Carta = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react.createElement("div", {
-        className: "carta"
+        className: "carta",
+        onClick: this.props.seleccionarCarta
       }, /*#__PURE__*/react.createElement((ReactCardFlip_default()), {
         isFlipped: this.state.isFlipped,
-        flipDirection: "horizontal"
+        flipDirection: "horizontal",
+        flipped: this.props.estaSiendoComparada || this.props.fueAdivinada,
+        disable: true
       }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("img", {
         src: BackCard,
         onClick: this.handleClick
@@ -1975,11 +1978,19 @@ var Tablero = /*#__PURE__*/function (_React$Component) {
   Tablero_createClass(Tablero, [{
     key: "render",
     value: function render() {
+      var _this = this;
       return /*#__PURE__*/react.createElement("div", {
         className: "Tablero"
-      }, this.props.miBar.map(function (carta) {
+      }, this.props.miBar.map(function (carta, index) {
+        var estaSiendoComparada = _this.props.parejaSeleccionada.indexOf(carta) > -1;
         return /*#__PURE__*/react.createElement(Carta, {
-          src: carta.icono.src
+          key: index,
+          src: carta.icono.src,
+          estaSiendoComparada: estaSiendoComparada,
+          seleccionarCarta: function seleccionarCarta() {
+            return _this.props.seleccionarCarta(carta);
+          },
+          fueAdivinada: carta.fueAdivinada
         });
       }));
     }
@@ -2066,6 +2077,19 @@ var num_cartas = 16;
 });
 ;// CONCATENATED MODULE: ./src/components/App.js
 function App_typeof(obj) { "@babel/helpers - typeof"; return App_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, App_typeof(obj); }
+function App_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function App_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? App_ownKeys(Object(source), !0).forEach(function (key) { App_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : App_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function App_defineProperty(obj, key, value) { key = App_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function App_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function App_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, App_toPropertyKey(descriptor.key), descriptor); } }
 function App_createClass(Constructor, protoProps, staticProps) { if (protoProps) App_defineProperties(Constructor.prototype, protoProps); if (staticProps) App_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -2086,7 +2110,9 @@ function App_getPrototypeOf(o) { App_getPrototypeOf = Object.setPrototypeOf ? Ob
 var getEstadoInicial = function getEstadoInicial() {
   var miBaraja = construccion();
   return {
-    miBaraja: miBaraja
+    miBaraja: miBaraja,
+    parejaSeleccionada: [],
+    estaComparando: false
   };
 };
 var App = /*#__PURE__*/function (_React$Component) {
@@ -2102,13 +2128,61 @@ var App = /*#__PURE__*/function (_React$Component) {
   App_createClass(App, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
       return /*#__PURE__*/react.createElement("div", {
         className: "App"
       }, /*#__PURE__*/react.createElement(Header, null), /*#__PURE__*/react.createElement("div", {
         id: "tablero"
       }, /*#__PURE__*/react.createElement(Tablero, {
-        miBar: this.state.miBaraja
+        miBar: this.state.miBaraja,
+        parejaSeleccionada: this.state.parejaSeleccionada,
+        seleccionCarta: function seleccionCarta(carta) {
+          return _this2.seleccionCarta(carta);
+        }
       })));
+    }
+  }, {
+    key: "seleccionCarta",
+    value: function seleccionCarta(carta) {
+      if (this.state.estaComparando || this.state.parejaSeleccionada.indexOf(carta) > -1 || carta.fueAdivinada) {
+        return;
+      }
+      var parejaSeleccionada = [].concat(_toConsumableArray(this.state.parejaSeleccionada), [carta]);
+      this.setState({
+        parejaSeleccionada: parejaSeleccionada
+      });
+      if (parejaSeleccionada.length === 2) {
+        this.compararPareja(parejaSeleccionada);
+      }
+    }
+  }, {
+    key: "compararPareja",
+    value: function compararPareja(parejaSeleccionada) {
+      var _this3 = this;
+      this.setState({
+        estaComparando: true
+      });
+      setTimeout(function () {
+        var _parejaSeleccionada = _slicedToArray(parejaSeleccionada, 2),
+          primeraCarta = _parejaSeleccionada[0],
+          segundaCarta = _parejaSeleccionada[1];
+        var miBaraja = _this3.state.miBaraja;
+        if (primeraCarta.icono === segundaCarta.icono) {
+          miBaraja = miBaraja.map(function (carta) {
+            if (carta.icono !== primeraCarta.icono) {
+              return carta;
+            }
+            return App_objectSpread(App_objectSpread({}, carta), {}, {
+              fueAdivinada: true
+            });
+          });
+        }
+        _this3.setState({
+          parejaSeleccionada: [],
+          miBaraja: miBaraja,
+          estaComparando: false
+        });
+      }, 1000);
     }
   }]);
   return App;

@@ -23,8 +23,13 @@ export default class Carta extends React.Component {
     render() {
       
       return (
-        <div className="carta">
-            <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
+        <div className="carta" onClick={this.props.seleccionarCarta}>
+            <ReactCardFlip 
+                isFlipped={this.state.isFlipped} 
+                flipDirection="horizontal"
+                flipped={this.props.estaSiendoComparada || this.props.fueAdivinada}
+                disable={true}
+            >
                 <div >
                     <img src={backCard} onClick={this.handleClick}/>
                 </div>

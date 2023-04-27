@@ -14,7 +14,16 @@ export default class Tablero extends React.Component {
     return (
         <div className="Tablero">
             {
-              this.props.miBar.map((carta) => <Carta src={carta.icono.src}/>)
+              this.props.miBar.map((carta, index) => {
+                const estaSiendoComparada = this.props.parejaSeleccionada.indexOf(carta) > -1;
+                return <Carta 
+                  key={index}
+                  src={carta.icono.src}
+                  estaSiendoComparada={estaSiendoComparada}
+                  seleccionarCarta={() => this.props.seleccionarCarta(carta)}
+                  fueAdivinada={carta.fueAdivinada}
+                />
+              })
             }
         </div>
     );
