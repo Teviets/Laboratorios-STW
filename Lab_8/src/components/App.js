@@ -3,6 +3,7 @@ import Header from "./header/header.js";
 import Tablero from "./tablero/Tablero.js";
 import baraja from "../Assets/utils/construccion.js"
 
+
 import "./App.css";
 
 const getEstadoInicial = () =>{
@@ -11,6 +12,7 @@ const getEstadoInicial = () =>{
     miBaraja,
     parejaSeleccionada: [],
     estaComparando: false,
+    intentos: 0 
   };
 }
 
@@ -21,9 +23,12 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.miBaraja);
     return (
       <div className="App">
-        <Header />
+        <Header 
+          intentos={this.state.intentos}
+        />
         <div id="tablero">
           <Tablero 
             miBar={this.state.miBaraja}
@@ -58,13 +63,13 @@ export default class App extends React.Component {
 
   compararPareja(parejaSeleccionada){
     this.setState({estaComparando: true});
-
+    console.log(parejaSeleccionada)
     setTimeout(() => {
       const [primeraCarta, segundaCarta] = parejaSeleccionada;
       let miBaraja = this.state.miBaraja;
       
       if (primeraCarta.icono.id === segundaCarta.icono.id){
-        console.log('son iguales');
+
         miBaraja = miBaraja.map((carta) => {
           if (carta.icono.id !== primeraCarta.icono.id){
             return carta;
@@ -76,21 +81,20 @@ export default class App extends React.Component {
           parejaSeleccionada: [],
           miBaraja: [...miBaraja],
           estaComparando: false,
+          intentos: this.state.intentos + 1
         });
       }else{
-      console.log(parejaSeleccionada);
-       let indice1 = miBaraja.findIndex((carta) => carta.icono.id === primeraCarta.icono.id)
-       let indice2 = miBaraja.findIndex((carta) => carta.icono.id === segundaCarta.icono. id)
-       console.log(indice1);
-       console.log(indice2);
-       miBaraja[indice1].fueAdivinada = true;
-       miBaraja[indice2].fueAdivinada = false;
-      console.log('son diferentes', miBaraja); 
-      this.setState({
-        parejaSeleccionada: [],
-        miBaraja: [...miBaraja],
-        estaComparando: false,
-      });
+        let indice1 = miBaraja.findIndex((carta) => carta.icono.id === primeraCarta.icono.id)
+        let indice2 = miBaraja.findIndex((carta) => carta.icono.id === segundaCarta.icono. id)
+        miBaraja[indice1].fueAdivinada = true;
+        miBaraja[indice2].fueAdivinada = false;
+        console.log('son diferentes', miBaraja); 
+        this.setState({
+          parejaSeleccionada: [],
+          miBaraja: [...miBaraja],
+          estaComparando: false,
+          intentos: this.state.intentos + 1
+        });
       }
 
       this.verificarSiHayGanador(miBaraja);
@@ -102,7 +106,7 @@ export default class App extends React.Component {
     if (
       miBaraja.filter((carta) => !carta.fueAdivinada).length === 0
     ){
-      alert("Ganaste");
+      alert("Ganaste con ${this.state.intentos} intentos");
     }
   }
 }

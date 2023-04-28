@@ -1873,10 +1873,13 @@ var Header = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react.createElement("header", null, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "Memoria Witcher")), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("button", {
-        className: "fourth"
+        className: "fourth",
+        onClick: function onClick() {
+          return window.location.reload();
+        }
       }, "Reinicio")), /*#__PURE__*/react.createElement("div", {
         id: "intento"
-      }, /*#__PURE__*/react.createElement("span", null, "Intentos: ")));
+      }, /*#__PURE__*/react.createElement("span", null, "Intentos: ", this.props.intentos)));
     }
   }]);
   return Header;
@@ -2124,7 +2127,8 @@ var getEstadoInicial = function getEstadoInicial() {
   return {
     miBaraja: miBaraja,
     parejaSeleccionada: [],
-    estaComparando: false
+    estaComparando: false,
+    intentos: 0
   };
 };
 var App = /*#__PURE__*/function (_React$Component) {
@@ -2141,9 +2145,12 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this2 = this;
+      console.log(this.state.miBaraja);
       return /*#__PURE__*/react.createElement("div", {
         className: "App"
-      }, /*#__PURE__*/react.createElement(Header, null), /*#__PURE__*/react.createElement("div", {
+      }, /*#__PURE__*/react.createElement(Header, {
+        intentos: this.state.intentos
+      }), /*#__PURE__*/react.createElement("div", {
         id: "tablero"
       }, /*#__PURE__*/react.createElement(Tablero, {
         miBar: this.state.miBaraja,
@@ -2174,13 +2181,13 @@ var App = /*#__PURE__*/function (_React$Component) {
       this.setState({
         estaComparando: true
       });
+      console.log(parejaSeleccionada);
       setTimeout(function () {
         var _parejaSeleccionada = _slicedToArray(parejaSeleccionada, 2),
           primeraCarta = _parejaSeleccionada[0],
           segundaCarta = _parejaSeleccionada[1];
         var miBaraja = _this3.state.miBaraja;
         if (primeraCarta.icono.id === segundaCarta.icono.id) {
-          console.log('son iguales');
           miBaraja = miBaraja.map(function (carta) {
             if (carta.icono.id !== primeraCarta.icono.id) {
               return carta;
@@ -2192,25 +2199,24 @@ var App = /*#__PURE__*/function (_React$Component) {
           _this3.setState({
             parejaSeleccionada: [],
             miBaraja: _toConsumableArray(miBaraja),
-            estaComparando: false
+            estaComparando: false,
+            intentos: _this3.state.intentos + 1
           });
         } else {
-          console.log(parejaSeleccionada);
           var indice1 = miBaraja.findIndex(function (carta) {
             return carta.icono.id === primeraCarta.icono.id;
           });
           var indice2 = miBaraja.findIndex(function (carta) {
             return carta.icono.id === segundaCarta.icono.id;
           });
-          console.log(indice1);
-          console.log(indice2);
           miBaraja[indice1].fueAdivinada = true;
           miBaraja[indice2].fueAdivinada = false;
           console.log('son diferentes', miBaraja);
           _this3.setState({
             parejaSeleccionada: [],
             miBaraja: _toConsumableArray(miBaraja),
-            estaComparando: false
+            estaComparando: false,
+            intentos: _this3.state.intentos + 1
           });
         }
         _this3.verificarSiHayGanador(miBaraja);
@@ -2222,7 +2228,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       if (miBaraja.filter(function (carta) {
         return !carta.fueAdivinada;
       }).length === 0) {
-        alert("Ganaste");
+        alert("Ganaste con ${this.state.intentos} intentos");
       }
     }
   }]);

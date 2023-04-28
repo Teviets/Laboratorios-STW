@@ -9,12 +9,12 @@ export default class Header extends React.Component{
                     <h1>Memoria Witcher</h1>
                 </div>
                 <div>
-                    <button className="fourth" >
+                    <button className="fourth" onClick={() => window.location.reload()}>
                         Reinicio
                     </button>
                 </div>
                 <div id="intento">
-                    <span>Intentos: </span>
+                    <span>Intentos: {this.props.intentos}</span>
                 </div>
             </header>
         )
