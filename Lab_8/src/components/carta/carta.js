@@ -14,27 +14,33 @@ export default class Carta extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    onComponentDidUpdate(){
+
+    }
+
     handleClick(e) {
         e.preventDefault();
-        this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+        this.props.seleccionCarta();
+        this.setState({ isFlipped:true });
     }
       
 
     render() {
       
       return (
-        <div className="carta" onClick={this.props.seleccionarCarta}>
+        <div className="carta" >
+            
             <ReactCardFlip 
-                isFlipped={this.state.isFlipped} 
+                isFlipped={this.state.isFlipped && this.props.estaSiendoComparada} 
                 flipDirection="horizontal"
-                flipped={this.props.estaSiendoComparada || this.props.fueAdivinada}
+               // flipped={this.props.estaSiendoComparada || this.props.fueAdivinada} 
                 disable={true}
             >
                 <div >
                     <img src={backCard} onClick={this.handleClick}/>
                 </div>
                 <div>
-                    <img src={this.props.src} onClick={this.handleClick}/>
+                    <img src={this.props.src} />
                 </div>
                 
             </ReactCardFlip>

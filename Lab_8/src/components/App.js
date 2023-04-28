@@ -40,7 +40,8 @@ export default class App extends React.Component {
     if(
       this.state.estaComparando || 
       this.state.parejaSeleccionada.indexOf(carta) > -1 || 
-      carta.fueAdivinada){
+      carta.fueAdivinada
+      ){
 
       return;
     }
@@ -61,22 +62,47 @@ export default class App extends React.Component {
     setTimeout(() => {
       const [primeraCarta, segundaCarta] = parejaSeleccionada;
       let miBaraja = this.state.miBaraja;
-
-      if (primeraCarta.icono === segundaCarta.icono){
+      
+      if (primeraCarta.icono.id === segundaCarta.icono.id){
+        console.log('son iguales');
         miBaraja = miBaraja.map((carta) => {
-          if (carta.icono !== primeraCarta.icono){
+          if (carta.icono.id !== primeraCarta.icono.id){
             return carta;
           }
 
           return {...carta, fueAdivinada: true};
         });
-      }
-
+        this.setState({
+          parejaSeleccionada: [],
+          miBaraja: [...miBaraja],
+          estaComparando: false,
+        });
+      }else{
+      console.log(parejaSeleccionada);
+       let indice1 = miBaraja.findIndex((carta) => carta.icono.id === primeraCarta.icono.id)
+       let indice2 = miBaraja.findIndex((carta) => carta.icono.id === segundaCarta.icono. id)
+       console.log(indice1);
+       console.log(indice2);
+       miBaraja[indice1].fueAdivinada = true;
+       miBaraja[indice2].fueAdivinada = false;
+      console.log('son diferentes', miBaraja); 
       this.setState({
         parejaSeleccionada: [],
-        miBaraja,
+        miBaraja: [...miBaraja],
         estaComparando: false,
       });
+      }
+
+      this.verificarSiHayGanador(miBaraja);
+     
     }, 1000);
+  }
+
+  verificarSiHayGanador(miBaraja){
+    if (
+      miBaraja.filter((carta) => !carta.fueAdivinada).length === 0
+    ){
+      alert("Ganaste");
+    }
   }
 }

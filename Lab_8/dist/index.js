@@ -1919,32 +1919,33 @@ var Carta = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
   carta_createClass(Carta, [{
+    key: "onComponentDidUpdate",
+    value: function onComponentDidUpdate() {}
+  }, {
     key: "handleClick",
     value: function handleClick(e) {
       e.preventDefault();
-      this.setState(function (prevState) {
-        return {
-          isFlipped: !prevState.isFlipped
-        };
+      this.props.seleccionCarta();
+      this.setState({
+        isFlipped: true
       });
     }
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react.createElement("div", {
-        className: "carta",
-        onClick: this.props.seleccionarCarta
+        className: "carta"
       }, /*#__PURE__*/react.createElement((ReactCardFlip_default()), {
-        isFlipped: this.state.isFlipped,
-        flipDirection: "horizontal",
-        flipped: this.props.estaSiendoComparada || this.props.fueAdivinada,
+        isFlipped: this.state.isFlipped && this.props.estaSiendoComparada,
+        flipDirection: "horizontal"
+        // flipped={this.props.estaSiendoComparada || this.props.fueAdivinada} 
+        ,
         disable: true
       }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("img", {
         src: BackCard,
         onClick: this.handleClick
       })), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("img", {
-        src: this.props.src,
-        onClick: this.handleClick
+        src: this.props.src
       }))));
     }
   }]);
@@ -1976,6 +1977,16 @@ var Tablero = /*#__PURE__*/function (_React$Component) {
     return _super.call(this, props);
   }
   Tablero_createClass(Tablero, [{
+    key: "onComponentDidMount",
+    value: function onComponentDidMount() {
+      console.log('mount');
+    }
+  }, {
+    key: "onComponentDidUpdate",
+    value: function onComponentDidUpdate() {
+      console.log('update', this.prop.miBar);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -1983,12 +1994,13 @@ var Tablero = /*#__PURE__*/function (_React$Component) {
         className: "Tablero"
       }, this.props.miBar.map(function (carta, index) {
         var estaSiendoComparada = _this.props.parejaSeleccionada.indexOf(carta) > -1;
+        console.log('comparada', estaSiendoComparada);
         return /*#__PURE__*/react.createElement(Carta, {
           key: index,
           src: carta.icono.src,
           estaSiendoComparada: estaSiendoComparada,
-          seleccionarCarta: function seleccionarCarta() {
-            return _this.props.seleccionarCarta(carta);
+          seleccionCarta: function seleccionCarta() {
+            return _this.props.seleccionCarta(carta);
           },
           fueAdivinada: carta.fueAdivinada
         });
@@ -2167,22 +2179,51 @@ var App = /*#__PURE__*/function (_React$Component) {
           primeraCarta = _parejaSeleccionada[0],
           segundaCarta = _parejaSeleccionada[1];
         var miBaraja = _this3.state.miBaraja;
-        if (primeraCarta.icono === segundaCarta.icono) {
+        if (primeraCarta.icono.id === segundaCarta.icono.id) {
+          console.log('son iguales');
           miBaraja = miBaraja.map(function (carta) {
-            if (carta.icono !== primeraCarta.icono) {
+            if (carta.icono.id !== primeraCarta.icono.id) {
               return carta;
             }
             return App_objectSpread(App_objectSpread({}, carta), {}, {
               fueAdivinada: true
             });
           });
+          _this3.setState({
+            parejaSeleccionada: [],
+            miBaraja: _toConsumableArray(miBaraja),
+            estaComparando: false
+          });
+        } else {
+          console.log(parejaSeleccionada);
+          var indice1 = miBaraja.findIndex(function (carta) {
+            return carta.icono.id === primeraCarta.icono.id;
+          });
+          var indice2 = miBaraja.findIndex(function (carta) {
+            return carta.icono.id === segundaCarta.icono.id;
+          });
+          console.log(indice1);
+          console.log(indice2);
+          miBaraja[indice1].fueAdivinada = true;
+          miBaraja[indice2].fueAdivinada = false;
+          console.log('son diferentes', miBaraja);
+          _this3.setState({
+            parejaSeleccionada: [],
+            miBaraja: _toConsumableArray(miBaraja),
+            estaComparando: false
+          });
         }
-        _this3.setState({
-          parejaSeleccionada: [],
-          miBaraja: miBaraja,
-          estaComparando: false
-        });
+        _this3.verificarSiHayGanador(miBaraja);
       }, 1000);
+    }
+  }, {
+    key: "verificarSiHayGanador",
+    value: function verificarSiHayGanador(miBaraja) {
+      if (miBaraja.filter(function (carta) {
+        return !carta.fueAdivinada;
+      }).length === 0) {
+        alert("Ganaste");
+      }
     }
   }]);
   return App;

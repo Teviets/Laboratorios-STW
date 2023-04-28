@@ -9,6 +9,14 @@ export default class Tablero extends React.Component {
     super(props);
   }
 
+  onComponentDidMount(){
+    console.log('mount');
+  }
+
+  onComponentDidUpdate(){
+    console.log('update',this.prop.miBar);
+  }
+
   render() {
     
     return (
@@ -16,11 +24,12 @@ export default class Tablero extends React.Component {
             {
               this.props.miBar.map((carta, index) => {
                 const estaSiendoComparada = this.props.parejaSeleccionada.indexOf(carta) > -1;
+                console.log('comparada',estaSiendoComparada);
                 return <Carta 
                   key={index}
                   src={carta.icono.src}
                   estaSiendoComparada={estaSiendoComparada}
-                  seleccionarCarta={() => this.props.seleccionarCarta(carta)}
+                  seleccionCarta={() => this.props.seleccionCarta(carta)}
                   fueAdivinada={carta.fueAdivinada}
                 />
               })
